@@ -48,9 +48,9 @@ tnp_parameters = cms.PSet(
     verbose = cms.bool(False),
 
     ## mass range for resonance window
-    mass_low       = cms.double(60.0),  # GeV
-    mass_high      = cms.double(120.0), # GeV
-    mass_bin_width = cms.double(2.0),   # GeV
+    mass_low       = cms.double(70.0),  # GeV
+    mass_high      = cms.double(110.0), # GeV
+    mass_bin_width = cms.double(1.0),   # GeV
 
     # datasets to run on
         datasets = cms.VPSet(dy_full, single_mu),
@@ -83,13 +83,13 @@ tnp_parameters = cms.PSet(
     ## models for pt bins
     pt_models = cms.vstring(
     #          sig pass,        sig fail,      bkg pass,      bkg fail
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Poly3"  , # pt1
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Poly3"  , # pt2
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Exponential"  , # pt3
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Poly3"  , # pt4
+        "MCTemplate" , "MCTemplate" , "Exponential" , "Exponential" , # pt0
+        "MCTemplate" , "MCTemplate" , "Exponential" , "Exponential" , # pt1
+        "MCTemplate" , "MCTemplate" , "Exponential" , "Exponential" , # pt2
+        "MCTemplate" , "MCTemplate" , "Exponential" , "Exponential" , # pt3
+        "MCTemplate" , "MCTemplate" , "Exponential" , "Exponential" , # pt4
+        "MCTemplate" , "MCTemplate" , "Linear"      , "Linear"      , # pt5
+        "MCTemplate" , "MCTemplate" , "Linear"      , "Linear"      , # pt6
     ),
 
     ## models for eta bins
@@ -114,7 +114,7 @@ tnp_parameters = cms.PSet(
     #          sig pass,        sig fail,      bkg pass,      bkg fail
         "BreitWignerCB", "BreitWignerCB", "Exponential", "Exponential", # phi0
         "BreitWignerCB", "BreitWignerCB", "Exponential", "Exponential", # phi1
-        "MCTemplate"   , "MCTemplate"   , "Poly3"      , "Poly3"      , # phi2
+        "MCTemplate"   , "MCTemplate"   , "Exponential"  , "Exponential"      , # phi2
         "MCTemplate"   , "MCTemplate"   , "Exponential", "Exponential", # phi3
         "MCTemplate"   , "MCTemplate"   , "Chebychev"  , "Chebychev"  , # phi4
         "MCTemplate"   , "MCTemplate"   , "Chebychev"  , "Chebychev"  , # phi5
@@ -139,23 +139,26 @@ tnp_parameters = cms.PSet(
     pt_vs_eta_models = cms.vstring( # Possibly eta vs pt instead of pt vs eta. need to check
     #          sig pass,        sig fail,      bkg pass,      bkg fail
 
-#	        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential", "Exponential",
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Poly3"  , # pt1
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Poly3"  , # pt2
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt3
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Poly3"  , # pt4
+        "MCTemplate"    , "MCTemplate"    , "Exponential" , "Exponential" , # pt0
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt0
 
-#	        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential", "Exponential",
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Poly3"  , # pt1
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Poly3"  , # pt2
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt3
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Exponential"  , # pt4
-        "MCTemplateCB"   , "MCTemplateCB"   , "Exponential"  , "Poly3"  , # pt4
+        "BreitWignerCB" , "BreitWignerCB" , "Exponential" , "Exponential" , # pt1
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt1
+
+        "MCTemplate"    , "MCTemplate"    , "Exponential" , "Exponential" , # pt2
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt2
+
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt3
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt3
+
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt4
+        "MCTemplateCB"  , "MCTemplateCB"  , "Exponential" , "Exponential" , # pt4
+
+        "MCTemplateCB"  , "MCTemplateCB"  , "Linear"      , "Linear"      , # pt5
+        "MCTemplateCB"  , "MCTemplateCB"  , "Linear"      , "Linear"      , # pt5
+
+        "MCTemplateCB"  , "MCTemplateCB"  , "Linear"      , "Linear"      , # pt6
+        "MCTemplateCB"  , "MCTemplateCB"  , "Linear"      , "Linear"      , # pt6
 
     ),
 
