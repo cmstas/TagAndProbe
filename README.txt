@@ -8,7 +8,7 @@ To set things up on UAF:
    cd CMSSW_7_4_2/src
    cmsenv
 
-   git clone https://github.com/gzevi/AnalysisTools.git 
+   git clone git@github.com:gzevi/AnalysisTools.git 
    git clone git@github.com:cmstas/TagAndProbe.git
 
    scramv1 b -j10
