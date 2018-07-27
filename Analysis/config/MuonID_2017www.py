@@ -21,6 +21,9 @@ from datasets import *
 ## Parameters for the selection, plot making, and fitting
 ## ------------------------------------------------------------- #
 
+mc_sample = test_dy
+data_sample = test_mu_data
+
 tnp_parameters = cms.PSet(
 
         ## Parameters for the selection and mass plots
@@ -53,7 +56,7 @@ tnp_parameters = cms.PSet(
         mass_bin_width = cms.double(1.0),   # GeV
 
         # datasets to run on
-        datasets = cms.VPSet(TnP2017_dy_m50_madgraph),
+        datasets = cms.VPSet(mc_sample, data_sample),
 
         ## bins for the observables
         ## supported pt, eta, phi, and # vertices
@@ -202,7 +205,7 @@ tnp_parameters.mc_template_file = cms.string("%s/plots/%s/%s/%s_%s/%s.root" % (a
     tnp_parameters.lepton_type.value(),
     tnp_parameters.denominator.value(),
     tnp_parameters.numerator.value(),
-    dy_full.name.value()))
+    mc_sample.name.value()))
 ## ------------------------------------------------------------- #
 ## process to make the plots
 ## will make a set of plots for each element of the cms.VPSet

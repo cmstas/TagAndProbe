@@ -127,10 +127,35 @@ single_el_2016 = cms.PSet(
 # TnP babies
 lepton_tree_path = "/nfs-7/userdata/phchang/WWW_babies/TnP2017_v3.0.1/"
 
+# Test Samples
+test_dy = cms.PSet(
+        name     = cms.string("dy_full"),
+        title    = cms.string("DY full"),
+        files    = cms.vstring(['/home/users/phchang/public_html/analysis/www/code/VVVBabyMaker2017/dilepbabymaker/testjobs/output_2017_CMS4_TnPBaby_DYJetsToLL_M-50.root']),
+        is_data  = cms.bool(False),
+        run_list = cms.string('')
+        )
+
+test_el_data = cms.PSet(
+        name     = cms.string("data_single_el"),
+        title    = cms.string("SingleElectron"),
+        files    = cms.vstring(['/home/users/phchang/public_html/analysis/www/code/VVVBabyMaker2017/dilepbabymaker/testjobs/output_2017_CMS4_TnPBaby_SingleElectron_Run2017B.root']),
+        is_data  = cms.bool(True),
+        run_list = cms.string('')
+        )
+
+test_mu_data = cms.PSet(
+        name     = cms.string("data_single_mu"),
+        title    = cms.string("SingleMuon"),
+        files    = cms.vstring(['/home/users/phchang/public_html/analysis/www/code/VVVBabyMaker2017/dilepbabymaker/testjobs/output_2017_CMS4_TnPBaby_SingleMuon_Run2017B.root']),
+        is_data  = cms.bool(True),
+        run_list = cms.string('')
+        )
+
 # DY fullsim
 TnP2017_dy_m50_madgraph = cms.PSet(
         name     = cms.string("dy_m50_madgraph"),
-        title    = cms.string("dy m50_madgraph"),
+        title    = cms.string("DY madgraph"),
         files    = cms.vstring([lepton_tree_path+'/dy_m50_madgraph.root']),
         is_data  = cms.bool(False),
         run_list = cms.string('')
