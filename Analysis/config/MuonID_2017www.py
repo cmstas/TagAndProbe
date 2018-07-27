@@ -70,7 +70,7 @@ tnp_parameters = cms.PSet(
 
         ## selection (from Measurements.h/cc)
         numerator   = cms.string("MuTightVVV"),
-        denominator = cms.string("MuTightMediumPOG"),
+        denominator = cms.string("MuMediumPOG"),
 
         ## Parameters for the fitting
         ## --------------------------------------------------------- #

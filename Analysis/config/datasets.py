@@ -122,3 +122,17 @@ single_el_2016 = cms.PSet(
         is_data  = cms.bool(True),
         run_list = run_list
 )
+
+#________________________________________________________________________________________________________
+# TnP babies
+lepton_tree_path = "/nfs-7/userdata/phchang/WWW_babies/TnP2017_v3.0.1/"
+
+# DY fullsim
+TnP2017_dy_m50_madgraph = cms.PSet(
+        name     = cms.string("dy_m50_madgraph"),
+        title    = cms.string("dy m50_madgraph"),
+        files    = cms.vstring([lepton_tree_path+'/dy_m50_madgraph.root']),
+        is_data  = cms.bool(False),
+        run_list = cms.string('')
+        )
+

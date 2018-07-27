@@ -110,6 +110,10 @@ namespace lepton_tree {
 	const bool &passes_VVV_MVAbased_tight_noiso() { return lepton_tree_obj.passes_VVV_MVAbased_tight_noiso(); }
 	const bool &passes_VVV_MVAbased_tight() { return lepton_tree_obj.passes_VVV_MVAbased_tight(); }
 	const bool &passes_VVV_baseline() { return lepton_tree_obj.passes_VVV_baseline(); }
+	const bool &passes_VVV_tight() { return lepton_tree_obj.passes_VVV_tight(); }
+	const bool &passes_VVV_tight_noiso() { return lepton_tree_obj.passes_VVV_tight_noiso(); }
+	const bool &passes_VVV_3l_tight() { return lepton_tree_obj.passes_VVV_3l_tight(); }
+	const bool &passes_VVV_3l_tight_noiso() { return lepton_tree_obj.passes_VVV_3l_tight_noiso(); }
 	const float &ip3d() { return lepton_tree_obj.ip3d(); }
 	const float &ip3derr() { return lepton_tree_obj.ip3derr(); }
 	const int &type() { return lepton_tree_obj.type(); }

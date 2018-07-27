@@ -344,6 +344,18 @@ protected:
 	bool	passes_VVV_baseline_;
 	TBranch *passes_VVV_baseline_branch;
 	bool passes_VVV_baseline_isLoaded;
+	bool	passes_VVV_tight_;
+	TBranch *passes_VVV_tight_branch;
+	bool passes_VVV_tight_isLoaded;
+	bool	passes_VVV_tight_noiso_;
+	TBranch *passes_VVV_tight_noiso_branch;
+	bool passes_VVV_tight_noiso_isLoaded;
+	bool	passes_VVV_3l_tight_;
+	TBranch *passes_VVV_3l_tight_branch;
+	bool passes_VVV_3l_tight_isLoaded;
+	bool	passes_VVV_3l_tight_noiso_;
+	TBranch *passes_VVV_3l_tight_noiso_branch;
+	bool passes_VVV_3l_tight_noiso_isLoaded;
 	float	ip3d_;
 	TBranch *ip3d_branch;
 	bool ip3d_isLoaded;
@@ -1275,6 +1287,26 @@ void Init(TTree *tree) {
 		passes_VVV_baseline_branch = tree->GetBranch("passes_VVV_baseline");
 		if (passes_VVV_baseline_branch) {passes_VVV_baseline_branch->SetAddress(&passes_VVV_baseline_);}
 	}
+	passes_VVV_tight_branch = 0;
+	if (tree->GetBranch("passes_VVV_tight") != 0) {
+		passes_VVV_tight_branch = tree->GetBranch("passes_VVV_tight");
+		if (passes_VVV_tight_branch) {passes_VVV_tight_branch->SetAddress(&passes_VVV_tight_);}
+	}
+	passes_VVV_tight_noiso_branch = 0;
+	if (tree->GetBranch("passes_VVV_tight_noiso") != 0) {
+		passes_VVV_tight_noiso_branch = tree->GetBranch("passes_VVV_tight_noiso");
+		if (passes_VVV_tight_noiso_branch) {passes_VVV_tight_noiso_branch->SetAddress(&passes_VVV_tight_noiso_);}
+	}
+	passes_VVV_3l_tight_branch = 0;
+	if (tree->GetBranch("passes_VVV_3l_tight") != 0) {
+		passes_VVV_3l_tight_branch = tree->GetBranch("passes_VVV_3l_tight");
+		if (passes_VVV_3l_tight_branch) {passes_VVV_3l_tight_branch->SetAddress(&passes_VVV_3l_tight_);}
+	}
+	passes_VVV_3l_tight_noiso_branch = 0;
+	if (tree->GetBranch("passes_VVV_3l_tight_noiso") != 0) {
+		passes_VVV_3l_tight_noiso_branch = tree->GetBranch("passes_VVV_3l_tight_noiso");
+		if (passes_VVV_3l_tight_noiso_branch) {passes_VVV_3l_tight_noiso_branch->SetAddress(&passes_VVV_3l_tight_noiso_);}
+	}
 	ip3d_branch = 0;
 	if (tree->GetBranch("ip3d") != 0) {
 		ip3d_branch = tree->GetBranch("ip3d");
@@ -2015,6 +2047,10 @@ void GetEntry(unsigned int idx)
 		passes_VVV_MVAbased_tight_noiso_isLoaded = false;
 		passes_VVV_MVAbased_tight_isLoaded = false;
 		passes_VVV_baseline_isLoaded = false;
+		passes_VVV_tight_isLoaded = false;
+		passes_VVV_tight_noiso_isLoaded = false;
+		passes_VVV_3l_tight_isLoaded = false;
+		passes_VVV_3l_tight_noiso_isLoaded = false;
 		ip3d_isLoaded = false;
 		ip3derr_isLoaded = false;
 		type_isLoaded = false;
@@ -2255,6 +2291,10 @@ void LoadAllBranches()
 	if (passes_VVV_MVAbased_tight_noiso_branch != 0) passes_VVV_MVAbased_tight_noiso();
 	if (passes_VVV_MVAbased_tight_branch != 0) passes_VVV_MVAbased_tight();
 	if (passes_VVV_baseline_branch != 0) passes_VVV_baseline();
+	if (passes_VVV_tight_branch != 0) passes_VVV_tight();
+	if (passes_VVV_tight_noiso_branch != 0) passes_VVV_tight_noiso();
+	if (passes_VVV_3l_tight_branch != 0) passes_VVV_3l_tight();
+	if (passes_VVV_3l_tight_noiso_branch != 0) passes_VVV_3l_tight_noiso();
 	if (ip3d_branch != 0) ip3d();
 	if (ip3derr_branch != 0) ip3derr();
 	if (type_branch != 0) type();
@@ -3799,6 +3839,58 @@ void LoadAllBranches()
 			passes_VVV_baseline_isLoaded = true;
 		}
 		return passes_VVV_baseline_;
+	}
+	bool &	passes_VVV_tight()
+	{
+		if (not passes_VVV_tight_isLoaded) {
+			if (passes_VVV_tight_branch != 0) {
+				passes_VVV_tight_branch->GetEntry(index);
+			} else { 
+				printf("branch passes_VVV_tight_branch does not exist!\n");
+				exit(1);
+			}
+			passes_VVV_tight_isLoaded = true;
+		}
+		return passes_VVV_tight_;
+	}
+	bool &	passes_VVV_tight_noiso()
+	{
+		if (not passes_VVV_tight_noiso_isLoaded) {
+			if (passes_VVV_tight_noiso_branch != 0) {
+				passes_VVV_tight_noiso_branch->GetEntry(index);
+			} else { 
+				printf("branch passes_VVV_tight_noiso_branch does not exist!\n");
+				exit(1);
+			}
+			passes_VVV_tight_noiso_isLoaded = true;
+		}
+		return passes_VVV_tight_noiso_;
+	}
+	bool &	passes_VVV_3l_tight()
+	{
+		if (not passes_VVV_3l_tight_isLoaded) {
+			if (passes_VVV_3l_tight_branch != 0) {
+				passes_VVV_3l_tight_branch->GetEntry(index);
+			} else { 
+				printf("branch passes_VVV_3l_tight_branch does not exist!\n");
+				exit(1);
+			}
+			passes_VVV_3l_tight_isLoaded = true;
+		}
+		return passes_VVV_3l_tight_;
+	}
+	bool &	passes_VVV_3l_tight_noiso()
+	{
+		if (not passes_VVV_3l_tight_noiso_isLoaded) {
+			if (passes_VVV_3l_tight_noiso_branch != 0) {
+				passes_VVV_3l_tight_noiso_branch->GetEntry(index);
+			} else { 
+				printf("branch passes_VVV_3l_tight_noiso_branch does not exist!\n");
+				exit(1);
+			}
+			passes_VVV_3l_tight_noiso_isLoaded = true;
+		}
+		return passes_VVV_3l_tight_noiso_;
 	}
 	float &ip3d()
 	{
@@ -5575,6 +5667,10 @@ namespace lepton_tree {
 	const bool &passes_VVV_MVAbased_tight_noiso();
 	const bool &passes_VVV_MVAbased_tight();
 	const bool &passes_VVV_baseline();
+	const bool &passes_VVV_tight();
+	const bool &passes_VVV_tight_noiso();
+	const bool &passes_VVV_3l_tight();
+	const bool &passes_VVV_3l_tight_noiso();
 	const float &ip3d();
 	const float &ip3derr();
 	const int &type();

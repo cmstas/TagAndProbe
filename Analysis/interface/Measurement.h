@@ -54,6 +54,7 @@ namespace tnp
 	    MuPFChIso,
 	    MuSoftIso,
             MuTightVVV,
+            MuMediumPOG,
 	    
             static_size
         };
